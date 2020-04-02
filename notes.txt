@@ -1,0 +1,65 @@
+Component
+    Where you load child components
+    There's no core.module.ts or equivalent
+    All child component are in that parent component (at least the references)
+
+Data Obj (Happens Behind the scenes, aka implied, in TypeScript)
+    Don't need to set this explicitly from anywhere else in the component
+    But you would set it in the beginning
+    Native JS, you do need to set these explicitly
+
+Computed Method (Happens Behind the scenes aka implied, in TypeScript)
+    But you would set it in the beginning
+    Something that's automatic
+    User doesn't need to do anything to do update state, it just happens
+    Native JS, you do need to set these explicitly
+    Everything in the computed variable is getting updated all the time
+
+Methods
+    Interactivity, actions
+    User clicks on button, updates state
+
+Vue Lifecycle Hook
+    created
+        when component is first created
+            ex: fetch user data on create
+    mounted
+        finished after DOM is loaded
+            ex: use this if something the DOM needs access to,
+            needs the component to have already have mounted
+    updated
+        virtual DOM, re-render and patch
+    destroyed
+
+UI Libraries
+    Vuetify
+
+Vuex (REST Calls)
+    Every module needs to have:
+        SET STATE
+        State
+            Your data
+        Actions (aka dispatch)
+            Dispatching/Calling the API/backend
+            Ex: getAllOrders, deleteOrders
+        Mutations - Like Reducers
+            Setting something inside the state
+            Vue.set(state, 'orders', orders) method updates the variable 
+                Replaces everything
+                Go to the orders variable, replace it w/everything coming in
+
+        GET STATE
+        Getters
+            Accessing the store
+
+    Patrick Example:
+        - Dispatch to getOrders
+        - Promise chain - GET to the backend, resolves w/o error, then you start the mutations with state that came back from the API
+        - Breakdown your mutation into separate lists, based on what the component needs
+
+Vuex Pathify
+    Plugin as a way to cut down on the amount of code needed for vuex
+
+Good to know
+    Vue doesn't use observables, it uses promises, async/await, etc
+
